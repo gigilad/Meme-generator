@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/main.css">
+    <title>meme-generator</title>
+</head>
+<body onload="init()">
+<header class="main-header-container  flex space-between ">
+    <div class="main-header main-container flex space-between">
+    <div class="logo" alt="">Meme</div>
+    <ul class="main-nav flex clean-list ">
+        <li> <a onclick="moveTo(event,'gallery')"href="">Gallery</a> </li>
+        <li> <a onclick="moveTo(event,'generator')" href="">Memes</a> </li>
+    </ul>
+    <button class="btn-menu" onclick="toggleMenu()">☰</button>
+</div>
+</header>  
+<section class="gallery-container">
+<header class="gallery-header main-container flex">
+    <form class="search-form flex" onsubmit="perventDefulat(event)" >
+        <input  class ="search-word" list="search-word" placeholder="Enter search keyword" onchange="filterImgBy()">
+        <datalist id="search-word" >
+        </datalist> 
+        <button class="search-btn" onclick="filterImgBy()">🔎</button>
+    </form>  
+    <div class="meme-Keywords-container main-container clean-list flex align-items">
+           
+        
+     </div>
+</header>
+<section class="img-container main-container "> 
+</section>
+</section>
+
+
+
+
+ <main class="meme-container margin justify-center flex hide" >
+     <section class="main-meme-container flex">
+         <div class="main-canvas flex justify-center">
+             <canvas width="300px" height="300px"  class="meme-canvas" style="border-radius: 10px;"></canvas>
+         </div>
+
+         <section class="main-btn-content flex space-around">
+             <input class="text-input" type="text" name="" id="" placeholder="Type here" oninput="onSetText(this.value)">
+             <div class=" btn-control flex justify-center"> 
+            
+               <img src="./icons/up-and-down-opposite-double-arrows-side-by-side.png" onclick="onChangeTextPos()" alt="">
+                <img src="./icons/add.png" alt="" onclick="onAddLine()">
+                <img src="./icons/trash.png" alt="" onclick="clearText()">
+                <input class="btn-color" type="color" onchange="onFillText(this.value)">
+                </div>
+                <div class="edit-btn">
+                <img src="./icons/increase font - icon.png" alt="" onclick="onChangeFontSize(+2)">
+                <img src="./icons/decrease font - icon.png" alt=""onclick="onChangeFontSize(-2)">
+                <img src="./icons/align-to-left.png" onclick="moveText('left')" alt="">
+                <img src="./icons/center-text-alignment.png" onclick="moveText('center')" alt="">
+                <img src="./icons/align-to-right.png" onclick="moveText('right')"alt="">
+            </div>
+            <select class="font-options" onchange="onSetFont(this.value)">
+                <option value="impact">impact</option>
+                <option value="arial">arial</option>
+                <option value="serif">serif</option>
+                <option value="antique">antique</option>
+                <option value="oxygen">oxygen</option>
+            </select>
+            <div class=" download-btn-container flex justify-center">
+            <!-- <button>Share</button> -->
+            <a class="download-btn" download="myCanvas.jpg" onclick="onDownloadCanvas(this)">Download</a>
+
+             </div>
+
+         </section>
+     </section>
+    </main>
+    
+    <footer class="copyrights">Gilad abrevaya :) </footer>
+
+
+
+
+<script src="./js/service.js"></script>
+<script src="./js/controller.js"></script>
+</body>
+</html>
